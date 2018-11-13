@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{079BB1E7-FC97-46FC-9F2D-B17A237DF405}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Flumin</RootNamespace>
+    <AssemblyName>Flumin</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.2.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C5, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\C5.2.4.5828.26833\lib\net45\C5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Yeppp.CLR.Bundle, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Yeppp.CLR.Bundle.1.0.1-prerelease\lib\net20\Yeppp.CLR.Bundle.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BufferView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BufferView.Designer.cs">
+      <DependentUpon>BufferView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BufferViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BufferViewForm.Designer.cs">
+      <DependentUpon>BufferViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions.cs" />
+    <Compile Include="GenericRingBuffer.cs" />
+    <Compile Include="HSLColor.cs" />
+    <Compile Include="MetricManager.cs" />
+    <Compile Include="Metrics\MetricFile.cs" />
+    <Compile Include="Metrics\MetricThresholdHystersis.cs" />
+    <Compile Include="Metrics\MetricValueTimeDelay.cs" />
+    <Compile Include="UserLogList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserLogList.Designer.cs">
+      <DependentUpon>UserLogList.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UserLogList.resx">
+      <DependentUpon>UserLogList.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Metrics\MetricBuffer.cs" />
+    <Compile Include="Metrics\MetricSustainedThreshold.cs" />
+    <None Include="Metrics\MetricThresholdEvent.cs" />
+    <Compile Include="ConcurrentBag.cs" />
+    <None Include="Metrics\MetricTimeStampSink.cs" />
+    <Compile Include="Metrics\MetricUnknownNode.cs" />
+    <Compile Include="NodeSystemHost.cs" />
+    <Compile Include="PerformanceCounter.cs" />
+    <Compile Include="PropertyRowContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PropertyRowNodeAttribute.cs" />
+    <Compile Include="RecordInfoViewTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecordInfoViewTree.Designer.cs">
+      <DependentUpon>RecordInfoViewTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecordSetView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecordSetView.Designer.cs">
+      <DependentUpon>RecordSetView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools.Designer.cs">
+      <DependentUpon>Tools.cs</DependentUpon>
+    </Compile>
+    <None Include="Metrics\MetricLogicNot.cs" />
+    <None Include="Metrics\MetricSlowProcess.cs" />
+    <Compile Include="DiskStream.cs" />
+    <Compile Include="GlobalSettings.cs" />
+    <None Include="Metrics\MetricStop.cs" />
+    <None Include="Metrics\MetricThreshold.cs" />
+    <None Include="Metrics\MetricValueSink.cs" />
+    <Compile Include="MinMax.cs" />
+    <Compile Include="MetricProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MetricProperties.Designer.cs">
+      <DependentUpon>MetricProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecordInfoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecordInfoView.Designer.cs">
+      <DependentUpon>RecordInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecordingStrategies\IRecordingStrategy.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NodeEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NodeEditor.Designer.cs">
+      <DependentUpon>NodeEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordingStrategies\IRecordingStrategyProperties.cs" />
+    <Compile Include="RecordingStrategies\RecordingStrategyLoop.cs" />
+    <Compile Include="RecordingStrategies\RecordingStrategyOneShot.cs" />
+    <Compile Include="RecordingStrategies\RecordingStrategyPause.cs" />
+    <Compile Include="RecordingStrategies\RecordingStrategySingleSegment.cs" />
+    <Compile Include="RecordingStrategies\RecordingStrategyQueue.cs" />
+    <Compile Include="RecordingStrategyEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecordingStrategyEditor.Designer.cs">
+      <DependentUpon>RecordingStrategyEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecordingStrategies\RecordSegmentInfo.cs" />
+    <Compile Include="RecordSet.cs" />
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThreadSafeObservableCollection.cs" />
+    <EmbeddedResource Include="BufferView.resx">
+      <DependentUpon>BufferView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BufferViewForm.resx">
+      <DependentUpon>BufferViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MetricProperties.resx">
+      <DependentUpon>MetricProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NodeEditor.resx">
+      <DependentUpon>NodeEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RecordInfoView.resx">
+      <DependentUpon>RecordInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecordInfoViewTree.resx">
+      <DependentUpon>RecordInfoViewTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecordingStrategyEditor.resx">
+      <DependentUpon>RecordingStrategyEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecordSetView.resx">
+      <DependentUpon>RecordSetView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools.resx">
+      <DependentUpon>Tools.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeviceLibrary\DeviceLibrary.csproj">
+      <Project>{907710ac-05fb-46e5-8e40-09ec32ec8973}</Project>
+      <Name>DeviceLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFTW\FFTW.csproj">
+      <Project>{93a9407f-00ed-41ce-9b2c-ecb482f08e93}</Project>
+      <Name>FFTW</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FluPy\FluPy.csproj">
+      <Project>{d25df999-3e06-4134-8702-f9ec575a4ff5}</Project>
+      <Name>FluPy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NewOpenGLRenderer\NewOpenGLRenderer\NewOpenGLRenderer.csproj">
+      <Project>{f9dc55e9-170f-46f3-b857-3fbdddfb26bd}</Project>
+      <Name>NewOpenGLRenderer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NodeEditor\NodeEditor\NodeEditor.csproj">
+      <Project>{690156c8-4785-4f8f-b39f-8fbe1a3d7729}</Project>
+      <Name>NodeEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NodeSystemLib2\NodeSystemLib2.csproj">
+      <Project>{4c5aae0c-cd11-4d89-a6d3-9d5050ab65b3}</Project>
+      <Name>NodeSystemLib2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ObjectListView\ObjectListView2012.csproj">
+      <Project>{18FEDA0C-D147-4286-B39A-01204808106A}</Project>
+      <Name>ObjectListView2012</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PropertyGrid\CustomPropertyGrid.csproj">
+      <Project>{f445e464-1da1-4c8f-b8ed-dbe4504862a3}</Project>
+      <Name>CustomPropertyGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ToolBox\ToolBox.csproj">
+      <Project>{D937E1F4-1B9F-4567-B28E-EED24AA31C9C}</Project>
+      <Name>ToolBox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WaveDisplayControl\WaveDisplayControl.csproj">
+      <Project>{0c9916d3-53a7-44cb-ab6c-20c8c7cf65cb}</Project>
+      <Name>WaveDisplayControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj">
+      <Project>{C75532C4-765B-418E-B09B-46D36B2ABDB1}</Project>
+      <Name>WinFormsUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="changelog.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Debug (
+  xcopy /Y "$(SolutionDir)debug\*.dll" "$(TargetDir)"
+  xcopy /Y "$(SolutionDir)debug\*.pdb" "$(TargetDir)"
+) else (
+  xcopy /Y "$(SolutionDir)release\*.dll" "$(TargetDir)"
+  xcopy /Y "$(SolutionDir)release\*.pdb" "$(TargetDir)"
+)
+
+mkdir "$(TargetDir)MetricLibs"
+xcopy /Y "$(SolutionDir)MetricLibs\*.dll" "$(TargetDir)MetricLibs\"
+xcopy /Y "$(SolutionDir)MetricLibs\*.pdb" "$(TargetDir)MetricLibs\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

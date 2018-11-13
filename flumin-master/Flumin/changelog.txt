@@ -1,0 +1,30 @@
+﻿HISTORY
+
+    Version Major.Minor.Revision
+
+
+    +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+
+
+    Version 0.2.1     01.08.2016
+    - Rewritten node system from scratch. Comes with faster data transfer, faster graph pausing, port data type safety and 
+      secure attributes to allow for control over change behaviour and also (later on) units.
+    - Started adapting metrics to new system
+
+    Todo:
+        - fix nidaq, fix metrics, fix state save/load, check opengl renderer
+
+    Bugs
+    - #1: Stored nidaq session state not saved again when exiting if device not connected at startup
+
+
+    +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+
+
+    Version 0.1.1     20.07.2016
+
+    - Modifed Metric Factory Interface to support factory properties which are global for all metrics owned by that factory
+    - NIDAQ ports have graph-global settings which can be accessed by double click on a NIDAQ node
+    - NIDAQ analog output is now based on the official NI DAQmx .Net library
+    - Waterfall diagramm has Min/Max decibel full-scale settings
+
+    Bugs
+        - #1: Stored nidaq session state not saved again when exiting if device not connected at startup

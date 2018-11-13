@@ -1,0 +1,5 @@
+LIBRARY NILoop
+EXPORTS
+    start_polling
+    stop_polling
+    read_buffer
